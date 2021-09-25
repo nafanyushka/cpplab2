@@ -19,7 +19,6 @@ namespace Batrudinov {
 		double getCurvativeRadius(double t);
 		void getCoords(double* x, double* y, double t);
 		bool getCoords(double x, double* y);
-		char* toString();
 	};
 
 

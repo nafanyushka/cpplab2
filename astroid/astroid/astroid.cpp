@@ -1,18 +1,25 @@
 ﻿#include <iostream>
 #include "Astroid.h"
+
+#define _SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING
 using namespace Batrudinov;
 
 void menu(Astroid& astroid);
 template <class T>
 bool getNum(T& a);
 
-int main()
+using namespace Batrudinov;
+
+
+
+/*
+int main(int argc, char* argv[])
 {
 	Astroid* astroid = new Astroid();
 	menu(*astroid);
 	delete astroid;
 }
-
+*/
 void menu(Astroid& astroid) {
 	while (true) {
 		std::cout << "Radius = " << astroid.getRadius() << "; Length = " << astroid.getLength() << "; Square = " << astroid.getSquare() << "\n\tMENU:\n\t1. Change radius, now r = " << astroid.getRadius()

@@ -23,9 +23,11 @@ namespace Batrudinov {
 		return square;
 	}
 	void Astroid::setRadius(double radius) {
+		if (radius < 0)
+			radius = 0;
 		this->radius = radius;
 		this->length = 6 * radius;
-		this->square = 3 * pow(radius, 2.0) / 8;
+		this->square = 3 * pow(radius, 2.0) * PI / 8;
 	}
 
 	double Astroid::getLength(double t) {
