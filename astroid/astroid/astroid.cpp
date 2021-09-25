@@ -3,23 +3,19 @@
 
 #define _SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING
 using namespace Batrudinov;
-
 void menu(Astroid& astroid);
 template <class T>
 bool getNum(T& a);
 
 using namespace Batrudinov;
 
-
-
-/*
 int main(int argc, char* argv[])
 {
 	Astroid* astroid = new Astroid();
 	menu(*astroid);
 	delete astroid;
 }
-*/
+
 void menu(Astroid& astroid) {
 	while (true) {
 		std::cout << "Radius = " << astroid.getRadius() << "; Length = " << astroid.getLength() << "; Square = " << astroid.getSquare() << "\n\tMENU:\n\t1. Change radius, now r = " << astroid.getRadius()
@@ -30,7 +26,7 @@ void menu(Astroid& astroid) {
 			<< "\n\t6. Exit.\n" << std::endl;
 		int choice = 0;
 		bool b = false;
-		Point* point;
+		Point point;
 		while (true) {
 			b = getNum(choice);
 			if (b)
@@ -78,14 +74,15 @@ void menu(Astroid& astroid) {
 					break;
 				std::cout << "TRY AGAIN!" << std::endl;
 			}
-			point = astroid.getCoordY(x);
-			if (point == nullptr) {
-				std::cout << "FAIL!" << std::endl;
+			try {
+				point = astroid.getCoordY(x);
+				std::cout << "y(x) = " << abs(point.y) << " or y(x) = -" << abs(point.y) << std::endl;
 				break;
 			}
-			std::cout << "y(x) = " << abs(point->y) << " or y(x) = -" << abs(point->y) << std::endl;
-			delete point;
-			break;
+			catch(std::exception e) {
+				std::cerr << "X > R!" << std::endl;
+				break;
+			}
 		case 5:
 			std::cout << "t = ";
 			while (true) {
@@ -95,8 +92,7 @@ void menu(Astroid& astroid) {
 				std::cout << "TRY AGAIN!" << std::endl;
 			}
 			point = astroid.getCoords(t);
-			std::cout << "x(t) = " << point->x << ", y(t) = " << point->y << std::endl;
-			delete point;
+			std::cout << "x(t) = " << point.x << ", y(t) = " << point.y << std::endl;
 			break;
 		case 6:
 			return;

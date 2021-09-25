@@ -47,38 +47,31 @@ TEST_F(AstroidTest, CoordsTests)
 {
 	double t;
 	t = 0;
-	Point* point;
+	Point point;
 	point = astroid->getCoords(t);
-	EXPECT_EQ(0, point->x);
-	EXPECT_EQ(0, point->y);
-	delete point;
+	EXPECT_EQ(0, point.x);
+	EXPECT_EQ(0, point.y);
 	astroid->setRadius(9);
 	point = astroid->getCoords(t);
-	EXPECT_EQ(9, point->x);
-	EXPECT_EQ(0, point->y);
+	EXPECT_EQ(9, point.x);
+	EXPECT_EQ(0, point.y);
 	t = 90;
-	delete point;
 	point = astroid->getCoords(t);
-	EXPECT_EQ(0, (int) point->x);
-	EXPECT_EQ(9, point->y);
+	EXPECT_EQ(0, (int) point.x);
+	EXPECT_EQ(9, point.y);
 	t = 45;
-	delete point;
 	point = astroid->getCoords(t);
-	EXPECT_EQ(round(point->x), round(point->y));
-	delete point;
+	EXPECT_EQ(round(point.x), round(point.y));
 	
 	double x = 0;
 	point = astroid->getCoordY(x);
-	EXPECT_EQ(9, round(point->y));
-	delete point;
+	EXPECT_EQ(9, round(point.y));
 	x = 9;
 	point = astroid->getCoordY(x);
-	EXPECT_EQ(0, point->y);
-	delete point;
+	EXPECT_EQ(0, point.y);
 	x = 3;
 	point = astroid->getCoordY(x);
-	EXPECT_EQ(3.3675, point->y);
-	delete point;
+	EXPECT_EQ(3.3675, point.y);
 }
 
 TEST_F(AstroidTest, CurvativeRadiusTests)
@@ -92,9 +85,9 @@ TEST_F(AstroidTest, CurvativeRadiusTests)
 	t = 45;
 	EXPECT_EQ(3.0 * 9.0 / 2.0, astroid->getCurvativeRadius(t));
 }
-
+/*
 int main(int argc, char* argv[])
 {
 	testing::InitGoogleTest(&argc, argv);
 	return RUN_ALL_TESTS();
-}
+}*/

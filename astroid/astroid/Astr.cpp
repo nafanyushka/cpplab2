@@ -42,20 +42,20 @@ namespace Batrudinov {
 	}
 
 	double const Astroid::getCurvativeRadius(const double t) { return 3 * this->radius * sin(2 * t * PI / 180) / 2; }
-	Point* const Astroid::getCoords(double t){
+	Point const Astroid::getCoords(double t){
 		t = t * PI / 180;
-		Point* point = new Point;
-		point->x = this->radius * pow(cos(t), 3.0);
-		point->y = this->radius * pow(sin(t), 3.0);
+		Point point;
+		point.x = this->radius * pow(cos(t), 3.0);
+		point.y = this->radius * pow(sin(t), 3.0);
 		return point;
 	}
 
-	Point* const Astroid::getCoordY(const double x) {
+	Point const Astroid::getCoordY(const double x) {
 		if (abs(x) > this->radius)
-			return nullptr;
-		Point* point = new Point;
-		point->x = x;
-		point->y = pow(pow(this->radius, 2.0 / 3.0) - pow(x, 2.0 / 3.0), 3.0 / 2.0);
+			throw std::runtime_error("X > R!");
+		Point point;
+		point.x = x;
+		point.y = pow(pow(this->radius, 2.0 / 3.0) - pow(x, 2.0 / 3.0), 3.0 / 2.0);
 		return point;
 	}
 }

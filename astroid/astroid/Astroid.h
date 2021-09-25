@@ -19,8 +19,8 @@ namespace Batrudinov {
 		void setRadius(double radius);
 		double const getLength(double t);
 		double const getCurvativeRadius(const double t);
-		Point* const getCoords(double t);
-		Point* const getCoordY(const double x);
+		Point const getCoords(double t);
+		Point const getCoordY(const double x);
 	};
 
 
