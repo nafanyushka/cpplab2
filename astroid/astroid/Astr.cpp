@@ -8,29 +8,27 @@ namespace Batrudinov {
 		this->setRadius(radius);
 	}
 
-	Astroid::Astroid() {
+	/*Astroid::Astroid() {
 		this->radius = 0;
 		this->length = 0;
 		this->square = 0;
-	}
-	double Astroid::getRadius() {
+	}*/
+	double const Astroid::getRadius() {
 		return radius;
 	}
-	double Astroid::getLength() {
-		return length;
+	double const Astroid::getLength() {
+		return 6 * radius;;
 	}
-	double Astroid::getSquare() {
-		return square;
+	double const Astroid::getSquare() {
+		return 3 * pow(radius, 2.0) * PI / 8;
 	}
 	void Astroid::setRadius(double radius) {
 		if (radius < 0)
 			radius = 0;
 		this->radius = radius;
-		this->length = 6 * radius;
-		this->square = 3 * pow(radius, 2.0) * PI / 8;
 	}
 
-	double Astroid::getLength(double t) {
+	double const Astroid::getLength(double t) {
 		if (t < 0 || t > 360)
 			return -1;
 		double l = 0;
@@ -43,16 +41,21 @@ namespace Batrudinov {
 		return l;
 	}
 
-	double Astroid::getCurvativeRadius(double t) { return 3 * this->radius * sin(2 * t * PI / 180) / 2; }
-	void Astroid::getCoords(double* x, double* y, double t){
+	double const Astroid::getCurvativeRadius(const double t) { return 3 * this->radius * sin(2 * t * PI / 180) / 2; }
+	Point* const Astroid::getCoords(double t){
 		t = t * PI / 180;
-		*x = this->radius * pow(cos(t), 3.0);
-		*y = this->radius * pow(sin(t), 3.0);
+		Point* point = new Point;
+		point->x = this->radius * pow(cos(t), 3.0);
+		point->y = this->radius * pow(sin(t), 3.0);
+		return point;
 	}
-	bool Astroid::getCoords(double x, double* y) {
+
+	Point* const Astroid::getCoordY(const double x) {
 		if (abs(x) > this->radius)
-			return false;
-		*y = pow(pow(this->radius, 2.0 / 3.0) - pow(x, 2.0 / 3.0), 3.0/2.0);
-		return true;
+			return nullptr;
+		Point* point = new Point;
+		point->x = x;
+		point->y = pow(pow(this->radius, 2.0 / 3.0) - pow(x, 2.0 / 3.0), 3.0 / 2.0);
+		return point;
 	}
 }

@@ -30,13 +30,14 @@ void menu(Astroid& astroid) {
 			<< "\n\t6. Exit.\n" << std::endl;
 		int choice = 0;
 		bool b = false;
+		Point* point;
 		while (true) {
 			b = getNum(choice);
 			if (b)
 				break;
 			std::cout << "TRY AGAIN!" << std::endl;
 		}
-		double x, y, r, t;
+		double x, r, t;
 		switch (choice) {
 		case 1:
 			std::cout << "R = ";
@@ -77,11 +78,13 @@ void menu(Astroid& astroid) {
 					break;
 				std::cout << "TRY AGAIN!" << std::endl;
 			}
-			if (!astroid.getCoords(x, &y)) {
+			point = astroid.getCoordY(x);
+			if (point == nullptr) {
 				std::cout << "FAIL!" << std::endl;
 				break;
 			}
-			std::cout << "y(x) = " << abs(y) << " or y(x) = -" << abs(y) << std::endl;
+			std::cout << "y(x) = " << abs(point->y) << " or y(x) = -" << abs(point->y) << std::endl;
+			delete point;
 			break;
 		case 5:
 			std::cout << "t = ";
@@ -91,8 +94,9 @@ void menu(Astroid& astroid) {
 					break;
 				std::cout << "TRY AGAIN!" << std::endl;
 			}
-			astroid.getCoords(&x, &y, t);
-			std::cout << "x(t) = " << x << ", y(t) = " << y << std::endl;
+			point = astroid.getCoords(t);
+			std::cout << "x(t) = " << point->x << ", y(t) = " << point->y << std::endl;
+			delete point;
 			break;
 		case 6:
 			return;

@@ -3,23 +3,26 @@
 
 namespace Batrudinov {
 	const double PI = 3.141592653589793;
+
+	struct Point {
+		double x, y;
+	};
+
 	class Astroid {
 	private:
-		double radius,
-			length,
-			square;
+		double radius;
 	public:
-		Astroid(double radius);
-		Astroid();
-		double getRadius();
-		double getLength();
-		double getSquare();
+		Astroid(double radius = 0);
+		double const getRadius();
+		double const getLength();
+		double const getSquare();
 		void setRadius(double radius);
-		double getLength(double t);
-		double getCurvativeRadius(double t);
-		void getCoords(double* x, double* y, double t);
-		bool getCoords(double x, double* y);
+		double const getLength(double t);
+		double const getCurvativeRadius(const double t);
+		Point* const getCoords(double t);
+		Point* const getCoordY(const double x);
 	};
+
 
 
 }

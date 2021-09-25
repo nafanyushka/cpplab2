@@ -45,32 +45,40 @@ TEST_F(AstroidTest, SquareTests)
 
 TEST_F(AstroidTest, CoordsTests)
 {
-	double t, x, y;
+	double t;
 	t = 0;
-	astroid->getCoords(&x, &y, t);
-	EXPECT_EQ(0, x);
-	EXPECT_EQ(0, y);
+	Point* point;
+	point = astroid->getCoords(t);
+	EXPECT_EQ(0, point->x);
+	EXPECT_EQ(0, point->y);
+	delete point;
 	astroid->setRadius(9);
-	astroid->getCoords(&x, &y, t);
-	EXPECT_EQ(9, x);
-	EXPECT_EQ(0, y);
+	point = astroid->getCoords(t);
+	EXPECT_EQ(9, point->x);
+	EXPECT_EQ(0, point->y);
 	t = 90;
-	astroid->getCoords(&x, &y, t);
-	EXPECT_EQ(0, (int)x);
-	EXPECT_EQ(9, y);
+	delete point;
+	point = astroid->getCoords(t);
+	EXPECT_EQ(0, (int) point->x);
+	EXPECT_EQ(9, point->y);
 	t = 45;
-	astroid->getCoords(&x, &y, t);
-	EXPECT_EQ(round(x), round(y));
-
-	x = 0;
-	astroid->getCoords(x, &y);
-	EXPECT_EQ(9, round(y));
+	delete point;
+	point = astroid->getCoords(t);
+	EXPECT_EQ(round(point->x), round(point->y));
+	delete point;
+	
+	double x = 0;
+	point = astroid->getCoordY(x);
+	EXPECT_EQ(9, round(point->y));
+	delete point;
 	x = 9;
-	astroid->getCoords(x, &y);
-	EXPECT_EQ(0, y);
+	point = astroid->getCoordY(x);
+	EXPECT_EQ(0, point->y);
+	delete point;
 	x = 3;
-	astroid->getCoords(x, &y);
-	EXPECT_EQ(3.3675, y);
+	point = astroid->getCoordY(x);
+	EXPECT_EQ(3.3675, point->y);
+	delete point;
 }
 
 TEST_F(AstroidTest, CurvativeRadiusTests)
