@@ -8,6 +8,8 @@ namespace Batrudinov {
 		this->setRadius(radius);
 	}
 
+	Astroid::~Astroid() {}
+
 	/*Astroid::Astroid() {
 		this->radius = 0;
 		this->length = 0;

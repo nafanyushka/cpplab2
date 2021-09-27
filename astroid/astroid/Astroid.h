@@ -13,6 +13,7 @@ namespace Batrudinov {
 		double radius;
 	public:
 		Astroid(double radius = 0);
+		~Astroid();
 		double const getRadius();
 		double const getLength();
 		double const getSquare();
