@@ -8,7 +8,7 @@ namespace Batrudinov {
 		this->setRadius(radius);
 	}
 
-	Astroid::~Astroid() {}
+	Astroid::~Astroid() { std::cout << "Deleting ASTROID" << std::endl; }
 
 	/*Astroid::Astroid() {
 		this->radius = 0;

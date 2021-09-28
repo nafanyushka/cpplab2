@@ -1,4 +1,9 @@
-﻿#include <iostream>
+﻿#define __CRTDBG_MAP_ALLOC
+#include <crtdbg.h>
+#define DEBUG_NEW new(_NORMAL_BLOCK, __FILE__, __LINE__)
+#define new DEBUG_NEW
+
+#include <iostream>
 #include "Astroid.h"
 
 #define _SILENCE_TR1_NAMESPACE_DEPRECATION_WARNING
@@ -11,9 +16,11 @@ using namespace Batrudinov;
 
 int main(int argc, char* argv[])
 {
+
 	Astroid* astroid = new Astroid();
 	menu(*astroid);
 	delete astroid;
+	_CrtDumpMemoryLeaks();
 }
 
 void menu(Astroid& astroid) {

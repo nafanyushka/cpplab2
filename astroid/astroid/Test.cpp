@@ -1,4 +1,9 @@
-#include "Tests.h"
+//# __CRTDBG_MAP_ALLOC
+//#include <crtdbg.h>
+//#define DEBUG_NEW new(_NORMAL_BLOCK, __FILE__, __LINE__)
+//#define new DEBUG_NEW
+
+/*#include "Tests.h"
 
 AstroidTest::AstroidTest() {
 	astroid = new Astroid();
@@ -85,9 +90,11 @@ TEST_F(AstroidTest, CurvativeRadiusTests)
 	t = 45;
 	EXPECT_EQ(3.0 * 9.0 / 2.0, astroid->getCurvativeRadius(t));
 }
-/*
+
 int main(int argc, char* argv[])
 {
 	testing::InitGoogleTest(&argc, argv);
+	//_CrtDumpMemoryLeaks();
 	return RUN_ALL_TESTS();
+
 }*/

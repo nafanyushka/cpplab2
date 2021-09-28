@@ -1,4 +1,4 @@
-#include <gtest/gtest.h>
+/*#include <gtest/gtest.h>
 #include "Astroid.h"
 
 using namespace Batrudinov;
@@ -11,3 +11,4 @@ struct AstroidTest : testing::Test
 
 	~AstroidTest();
 };
+*/
