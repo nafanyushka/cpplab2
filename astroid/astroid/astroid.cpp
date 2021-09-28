@@ -14,14 +14,14 @@ bool getNum(T& a);
 
 using namespace Batrudinov;
 
-int main(int argc, char* argv[])
+/*int main(int argc, char* argv[])
 {
 
 	Astroid* astroid = new Astroid();
 	menu(*astroid);
 	delete astroid;
 	_CrtDumpMemoryLeaks();
-}
+}*/
 
 void menu(Astroid& astroid) {
 	while (true) {

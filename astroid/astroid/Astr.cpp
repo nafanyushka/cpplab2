@@ -15,13 +15,13 @@ namespace Batrudinov {
 		this->length = 0;
 		this->square = 0;
 	}*/
-	double const Astroid::getRadius() {
+	double  Astroid::getRadius() const {
 		return radius;
 	}
-	double const Astroid::getLength() {
+	double  Astroid::getLength() const {
 		return 6 * radius;;
 	}
-	double const Astroid::getSquare() {
+	double  Astroid::getSquare() const {
 		return 3 * pow(radius, 2.0) * PI / 8;
 	}
 	void Astroid::setRadius(double radius) {
@@ -30,7 +30,7 @@ namespace Batrudinov {
 		this->radius = radius;
 	}
 
-	double const Astroid::getLength(double t) {
+	double  Astroid::getLength(double t) const {
 		if (t < 0 || t > 360)
 			return -1;
 		double l = 0;
@@ -43,8 +43,8 @@ namespace Batrudinov {
 		return l;
 	}
 
-	double const Astroid::getCurvativeRadius(const double t) { return 3 * this->radius * sin(2 * t * PI / 180) / 2; }
-	Point const Astroid::getCoords(double t){
+	double  Astroid::getCurvativeRadius(const double t) const { return 3 * this->radius * sin(2 * t * PI / 180) / 2; }
+	Point  Astroid::getCoords(double t) const {
 		t = t * PI / 180;
 		Point point;
 		point.x = this->radius * pow(cos(t), 3.0);
@@ -52,7 +52,7 @@ namespace Batrudinov {
 		return point;
 	}
 
-	Point const Astroid::getCoordY(const double x) {
+	Point  Astroid::getCoordY(const double x) const {
 		if (abs(x) > this->radius)
 			throw std::runtime_error("X > R!");
 		Point point;

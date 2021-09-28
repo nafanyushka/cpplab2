@@ -13,14 +13,14 @@ namespace Batrudinov {
 	public:
 		Astroid(double radius = 0);
 		~Astroid();
-		double const getRadius();
-		double const getLength();
-		double const getSquare();
+		double  getRadius() const;
+		double  getLength() const;
+		double  getSquare() const;
 		void setRadius(double radius);
-		double const getLength(double t);
-		double const getCurvativeRadius(const double t);
-		Point const getCoords(double t);
-		Point const getCoordY(const double x);
+		double  getLength(double t) const;
+		double  getCurvativeRadius(const double t) const;
+		Point  getCoords(double t) const;
+		Point  getCoordY(const double x) const;
 	};
 
 
